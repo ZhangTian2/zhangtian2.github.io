@@ -18,7 +18,8 @@
     padding-left: 8px;
     padding-right: 8px;
     font-size: 1.0em;
-    height: 1000px;
+/*     height: 1000px; */
+    height: 100%;
     white-space: nowrap;
     text-align: left;
     vertical-align: top;
