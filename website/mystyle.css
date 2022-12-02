@@ -67,6 +67,17 @@ div.menu-item {
     vertical-align: top;
     float:left;
 }
+#layout-content_01 {
+    width: 718px;
+    padding-top: 0.0em;
+    padding-left: 13em;
+    padding-right: 1.0em;
+    border: none;
+    background: white;
+    text-align: left;
+    vertical-align: top;
+    float:left;
+}
 
 #toptitle {
     width: 800px;
