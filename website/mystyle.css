@@ -132,6 +132,16 @@ div.menu-item {
     vertical-align: top;
     float:left;
 }
+#education2{
+    padding-top: 0.0em;
+    padding-left: 2.0em;
+    padding-right: 1.0em;
+    border: none;
+    background: white;
+    text-align: left;
+    vertical-align: top;
+    float:left;
+}
 
 a.current:visited {
     width: 150px;
