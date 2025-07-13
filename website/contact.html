@@ -1,37 +1,90 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zhang Tianyi's Personal Homepage</title>
-    <link rel="stylesheet" href="https://zhangtian2.github.io//website//zhipucss.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>张天乙 - 联系方式</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://zhangtian2.github.io//website//style.css" />
 </head>
 <body>
-    <header>
-        <img src="https://zhangtian2.github.io//website/zty3.png" alt="Logo">
-        <span class="header-title">张天乙的<br>个人主页</span>
-        <span class="header-slogan">
-            <img src="https://zhangtian2.github.io//website/ssqs.png" alt="Logo">
-        </span>
-    </header>
-    <nav>
-        <div class="nav-ul">
-            <a href="https://zhangtian2.github.io//index.html" style="text-decoration: none;"><div class="nav-ul-li">首页</div></a>
-            <a href="https://zhangtian2.github.io//website//studyAndWork.html" style="text-decoration: none;"><div class="nav-ul-li">学习工作</div></a>
-            <a href="https://zhangtian2.github.io//website//hobby.html" style="text-decoration: none;"><div class="nav-ul-li">爱好</div></a>
-            <a href="https://zhangtian2.github.io//website//contact.html" style="text-decoration: none;"><div class="nav-ul-li-active">联系方式</div></a>
+
+  <!-- 顶部 Header -->
+  <header>
+    <div class="container">
+      <div class="header-content">
+        <div class="logo-section">
+          <img src="https://zhangtian2.github.io//website/zty3.png" alt="张天乙" />
+          <div class="title-section">
+            <h1>张天乙的个人主页</h1>
+          </div>
         </div>
-    </nav>
-    <main>
-        <section style="display:flex; text-align: left;margin-left: 19%;margin-top: 10px;">
-            Email
-            <img src="https://zhangtian2.github.io/website/email.jpg" alt="个人邮箱" width="20" height="20">
-            :zty1821187980@mail.ustc.edu.cn
-        </section>
-        
-    </main>
-    <!-- <footer>
-        <p>© 2024 张天乙的个人主页. All rights reserved.</p>
-    </footer> -->
+        <div class="slogan-section">
+          <!-- <img src="https://zhangtian2.github.io//website/ssqs.png" alt="慎思求实" /> -->
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- 导航栏 -->
+  <nav>
+    <div class="container nav-container">
+      <button class="menu-toggle">
+        <i class="fas fa-bars"></i>
+      </button>
+      <ul class="nav-ul">
+        <li><a href="C://Users//zty//Desktop//zhangtian2.github.io-main/index.html">首页</a></li>
+        <li class="dropdown">
+            <a href="https://zhangtian2.github.io//website//studyAndWork.html" class="dropbtn">学习工作</a>
+            <div class="dropdown-content">
+                <a href="https://zhangtian2.github.io//website//paper.html">论文</a>
+                <a href="https://zhangtian2.github.io//website//report.html">报告</a>
+            </div>
+        </li>
+        <li class="dropdown">
+            <a href="https://zhangtian2.github.io//website//hobby.html" class="dropbtn">爱好</a>
+            <div class="dropdown-content">
+                <a href="https://zhangtian2.github.io//website//poem.html">写诗</a>
+                <a href="https://zhangtian2.github.io//website//photo.html">拍照</a>
+            </div>
+        </li>
+        <li><a href="https://zhangtian2.github.io//website//contact.html" class="nav-ul-li-active">联系方式</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- 页面主体内容 -->
+  <main class="container">
+    <section class="content-section">
+      <div class="section-header">
+        <h3 class="section-title">联系方式</h3>
+      </div>
+      <div class="section-content">
+        <p style="font-size: 1.2em; display: flex; align-items: center;">
+          Email&nbsp;
+          <img src="C://Users//zty//Desktop//zhangtian2.github.io-main/website/email.jpg" alt="邮箱图标" width="20" height="20" style="margin: 0 8px;" />
+          :&nbsp;zty1821187980@mail.ustc.edu.cn
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <!-- 页脚 -->
+  <footer class="container">
+    <p>© 2025 张天乙的个人主页 | 保留所有权利</p>
+  </footer>
+
+  <!-- 移动端菜单功能 -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      document.querySelector('.menu-toggle').addEventListener('click', function () {
+        const navMenu = document.querySelector('.nav-ul');
+        navMenu.classList.toggle('active');
+        const icon = this.querySelector('i');
+        icon.classList.toggle('fa-bars');
+        icon.classList.toggle('fa-times');
+      });
+    });
+  </script>
 </body>
 </html>

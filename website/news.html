@@ -1,52 +1,160 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zhang Tianyi's Personal Homepage</title>
-    <link rel="stylesheet" href="https://zhangtian2.github.io//website//zhipucss.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>张天乙 - 新闻动态</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="https://zhangtian2.github.io//website//style.css">
 </head>
 <body>
-    <header>
-        <img src="https://zhangtian2.github.io//website/zty3.png" alt="Logo">
-        <span class="header-title">张天乙的<br>个人主页</span>
-        <span class="header-slogan">
-            <img src="https://zhangtian2.github.io//website/ssqs.png" alt="Logo">
-        </span>
-    </header>
-    <nav>
-        <div class="nav-ul">
-            <a href="https://zhangtian2.github.io//index.html" style="text-decoration: none;"><div class="nav-ul-li-active">首页</div></a>
-            <a href="https://zhangtian2.github.io//website//studyAndWork.html" style="text-decoration: none;"><div class="nav-ul-li">学习工作</div></a>
-            <a href="https://zhangtian2.github.io//website//hobby.html" style="text-decoration: none;"><div class="nav-ul-li">爱好</div></a>
-            <a href="https://zhangtian2.github.io//website//contact.html" style="text-decoration: none;"><div class="nav-ul-li">联系方式</div></a>
+
+  <!-- 顶部标题区域 -->
+  <header>
+    <div class="container">
+      <div class="header-content">
+        <div class="logo-section">
+          <img src="https://zhangtian2.github.io//website//zty3.png" alt="张天乙">
+          <div class="title-section">
+            <h1>张天乙的个人主页</h1>
+          </div>
         </div>
-    </nav>
-    <main>
-        <section class="news">
-            <div class="news-header">
-                <span>新闻</span>
+        <div class="slogan-section">
+          <!-- <img src="https://zhangtian2.github.io//website//ssqs.png" alt="慎思求实"> -->
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- 导航栏 -->
+  <nav>
+    <div class="container nav-container">
+      <button class="menu-toggle">
+        <i class="fas fa-bars"></i>
+      </button>
+      <ul class="nav-ul">
+        <li class="nav-ul-li"><a href="https://zhangtian2.github.io//index.html">首页</a></li>
+        <li class="dropdown">
+            <a href="https://zhangtian2.github.io//website//studyAndWork.html" class="dropbtn">学习工作</a>
+            <div class="dropdown-content">
+                <a href="https://zhangtian2.github.io//website//paper.html">论文</a>
+                <a href="https://zhangtian2.github.io//website//report.html">报告</a>
             </div>
-            <div class="news-content">
-                <div><img src="https://zhangtian2.github.io//website/news.png" alt="Small Circle">
-                2024/09/30                    论文《Electrical switching of the perpendicular Néel order in a collinear antiferromagnet》在物理期刊Nature Electronics上发表！</div>
-                <div><img src="https://zhangtian2.github.io//website/news.png" alt="Small Circle">
-                2024/07/08                    论文《Magnonics: Materials, physics, and devices》在物理期刊Applied Physics Letters上发表！</div>
-                <div><img src="https://zhangtian2.github.io//website/news.png" alt="Small Circle">
-                2024/05/24                    论文《Magnetic-field tuning of the Casimir force》在物理期刊Nature Physics上发表！</div>
-                <div><img src="https://zhangtian2.github.io//website/news.png" alt="Small Circle">
-                2024/02/16                    论文《Voltage-Controlled Magnon Transistor via Tuning Interfacial Exchange Coupling》在物理期刊PRL上发表！</div>
-                <div><img src="https://zhangtian2.github.io//website/news.png" alt="Small Circle">
-                2023/09/26                    论文《Full quantum theory for magnon transport in two-sublattice magnetic insulators and magnon junctions》在物理期刊PRB上发表！</div>
-                <div><img src="https://zhangtian2.github.io//website/news.png" alt="Small Circle">
-                2023/07/27                    论文《Threshold current of field-free perpendicular magnetization switching using anomalous spin-orbit torque》在物理期刊PRB上发表！</div>
-                <div><img src="https://zhangtian2.github.io//website/news.png" alt="Small Circle">
-                2022/05/19                    个人网页上线啦！</div>
+        </li>        
+        <li class="dropdown">
+            <a href="https://zhangtian2.github.io//website//hobby.html" class="dropbtn">爱好</a>
+            <div class="dropdown-content">
+                <a href="https://zhangtian2.github.io//website//poem.html">写诗</a>
+                <a href="https://zhangtian2.github.io//website//photo.html">拍照</a>
             </div>
-        </section>
-    </main>
-    <!-- <footer>
-        <p>© 2024 张天乙的个人主页. All rights reserved.</p>
-    </footer> -->
+        </li>
+        <li><a href="https://zhangtian2.github.io//website//contact.html">联系方式</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- 新闻内容区域 -->
+  <main class="container">
+    <section class="content-section">
+      <div class="section-header">
+        <h3 class="section-title">新闻动态</h3>
+      </div>
+      <div class="section-content">
+
+        <div class="news-item">
+          <i class="fas fa-bullhorn news-icon"></i>
+          <div class="news-content">
+            <span class="news-date">2025/01/21</span>
+            <p class="news-text">论文《In-plane magnon valve effect in magnetic insulator–heavy metal–magnetic insulator device》在物理期刊 Physical Review B 上发表！</p>
+          </div>
+        </div>
+
+        <div class="news-item">
+          <i class="fas fa-bullhorn news-icon"></i>
+          <div class="news-content">
+            <span class="news-date">2024/09/30</span>
+            <p class="news-text">论文《Electrical switching of the perpendicular Néel order in a collinear antiferromagnet》在物理期刊 Nature Electronics 上发表！</p>
+          </div>
+        </div>
+
+        <div class="news-item">
+          <i class="fas fa-bullhorn news-icon"></i>
+          <div class="news-content">
+            <span class="news-date">2024/07/08</span>
+            <p class="news-text">论文《Magnonics: Materials, physics, and devices》在物理期刊 Applied Physics Letters 上发表！</p>
+          </div>
+        </div>
+
+        <div class="news-item">
+          <i class="fas fa-bullhorn news-icon"></i>
+          <div class="news-content">
+            <span class="news-date">2024/05/24</span>
+            <p class="news-text">论文《Magnetic-field tuning of the Casimir force》在物理期刊 Nature Physics 上发表！</p>
+          </div>
+        </div>
+
+        <div class="news-item">
+          <i class="fas fa-bullhorn news-icon"></i>
+          <div class="news-content">
+            <span class="news-date">2024/02/16</span>
+            <p class="news-text">论文《Voltage-Controlled Magnon Transistor via Tuning Interfacial Exchange Coupling》在物理期刊 PRL 上发表！</p>
+          </div>
+        </div>
+
+        <div class="news-item">
+          <i class="fas fa-bullhorn news-icon"></i>
+          <div class="news-content">
+            <span class="news-date">2023/09/26</span>
+            <p class="news-text">论文《Full quantum theory for magnon transport in two-sublattice magnetic insulators and magnon junctions》在物理期刊 PRB 上发表！</p>
+          </div>
+        </div>
+
+        <div class="news-item">
+          <i class="fas fa-bullhorn news-icon"></i>
+          <div class="news-content">
+            <span class="news-date">2023/07/27</span>
+            <p class="news-text">论文《Threshold current of field-free perpendicular magnetization switching using anomalous spin-orbit torque》在物理期刊 PRB 上发表！</p>
+          </div>
+        </div>
+
+        <div class="news-item">
+          <i class="fas fa-bullhorn news-icon"></i>
+          <div class="news-content">
+            <span class="news-date">2022/05/19</span>
+            <p class="news-text">个人网页上线啦！</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- 页脚 -->
+  <footer class="container">
+    <p>© 2025 张天乙的个人主页 | 保留所有权利</p>
+  </footer>
+
+  <!-- JS 脚本 -->
+  <script>
+    document.querySelector('.menu-toggle').addEventListener('click', function() {
+      const navMenu = document.querySelector('.nav-ul');
+      navMenu.classList.toggle('active');
+      const icon = this.querySelector('i');
+      icon.classList.toggle('fa-bars');
+      icon.classList.toggle('fa-times');
+    });
+
+    document.querySelectorAll('.nav-ul a').forEach(link => {
+      link.addEventListener('click', function () {
+        if (window.innerWidth <= 768) {
+          document.querySelector('.nav-ul').classList.remove('active');
+          const icon = document.querySelector('.menu-toggle i');
+          icon.classList.remove('fa-times');
+          icon.classList.add('fa-bars');
+        }
+      });
+    });
+  </script>
+
 </body>
 </html>

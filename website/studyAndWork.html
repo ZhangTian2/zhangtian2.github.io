@@ -1,66 +1,151 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zhang Tianyi's Personal Homepage</title>
-    <link rel="stylesheet" href="https://zhangtian2.github.io//website//zhipucss.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>张天乙 - 学习工作</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="https://zhangtian2.github.io//website//style.css">
 </head>
 <body>
-    <header>
-        <img src="https://zhangtian2.github.io//website/zty3.png" alt="Logo">
-        <span class="header-title">张天乙的<br>个人主页</span>
-        <span class="header-slogan">
-            <img src="https://zhangtian2.github.io//website/ssqs.png" alt="Logo">
-        </span>
-    </header>
-    <nav>
-        <div class="nav-ul">
-            <a href="https://zhangtian2.github.io//index.html" style="text-decoration: none;"><div class="nav-ul-li">首页</div></a>
-            <a href="https://zhangtian2.github.io//website//studyAndWork.html" style="text-decoration: none;"><div class="nav-ul-li-active">学习工作</div></a>
-            <a href="https://zhangtian2.github.io//website//hobby.html" style="text-decoration: none;"><div class="nav-ul-li">爱好</div></a>
-            <a href="https://zhangtian2.github.io//website//contact.html" style="text-decoration: none;"><div class="nav-ul-li">联系方式</div></a>
+
+  <!-- 顶部标题 -->
+  <header>
+    <div class="container">
+      <div class="header-content">
+        <div class="logo-section">
+          <img src="https://zhangtian2.github.io//website//zty3.png" alt="张天乙">
+          <div class="title-section">
+            <h1>张天乙的个人主页</h1>
+          </div>
         </div>
-    </nav>
-    <main>
-        <section class="studyAndWork">
-            <div class="news-left">
-                <a href="https://zhangtian2.github.io//website//studyAndWork.html" style="text-decoration: none;">
-                    <div class="column_title">
-                        学习工作
-                    </div>
-                </a>
-                    <a href="https://zhangtian2.github.io//website//paper.html" class="notchosen">
-                        论文
-                    </a>
-                    <a href="https://zhangtian2.github.io//website//report.html" class="notchosen">
-                        报告
-                    </a>
+        <div class="slogan-section">
+          <!-- <img src="https://zhangtian2.github.io//website//ssqs.png" alt="慎思求实"> -->
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- 导航栏 -->
+  <nav>
+    <div class="container nav-container">
+      <button class="menu-toggle">
+        <i class="fas fa-bars"></i>
+      </button>
+      <ul class="nav-ul">
+        <li><a href="https://zhangtian2.github.io//index.html">首页</a></li>
+        <!-- <li class="nav-ul-li-active"> -->
+        <li class="dropdown nav-ul-li-active">
+            <a href="https://zhangtian2.github.io//website//studyAndWork.html"
+                class="dropbtn"
+                id="studyWorkBtn">学习工作 <i class="fas fa-caret-down"></i></a>
+            <div class="dropdown-content" id="studyWorkMenu">
+                <a href="https://zhangtian2.github.io//website//paper.html">论文</a>
+                <a href="https://zhangtian2.github.io//website//report.html">报告</a>
             </div>
-            <div class="news-right">
-                <ol>
-                    <div style="font-size: 30px; font-weight: bold;margin-left: -15px;margin-bottom: 15px;">研究方向</div>
-                    <li>反常z-torque对SOT翻转磁矩的影响。<br>基于对LLGS方程稳定性的分析，我们给出了一种可以同时囊括STT和反常SOT翻转磁性层的框架，给出了这种框架下用来翻转垂直磁性层的阈值电流公式，本研究对自旋电子器件的设计和控制铁磁层的钉扎和反钉扎具有指导意义。<br><br>
-                        <img border="0" src="https://zhangtian2.github.io/website/research5.png" alt="Github" width="300" height="200">
-                        <!-- <img border="0" src="https://zhangtian2.github.io/website/research6.png" alt="Github" width="400" height="200">
-                        <img border="0" src="https://zhangtian2.github.io/website/research7.png" alt="Github" width="300" height="200"> -->
-                        <img border="0" src="https://zhangtian2.github.io/website/research8.png" alt="Github" width="400" height="200"><br>
-                        Zhang Tianyi, Wan Caihua and Han Xiufeng. Threshold current of field-free perpendicular magnetization switching using anomalous spin-orbit torque, Physical Review B 108, 1 (2023).<a href="https://journals.aps.org/prb/pdf/10.1103/PhysRevB.108.014432" target="_blank">pdf</a>
-                    </li><br><br>
-                    <li>计算磁子输运的全量子理论。<br>基于二次量子化和非平衡格林函数法，我们提出了一种计算磁子流在双子晶格磁性绝缘体和磁子结中输运的框架,这种框架可以计算电流和温度梯度产生的磁子流的输运。<br><br>
-                        <img border="0" src="https://zhangtian2.github.io/website/research1.png" alt="Github" width="300" height="200">
-                        <!-- <img border="0" src="https://zhangtian2.github.io/website/research3.png" alt="Github" width="300" height="200"> -->
-                        <img border="0" src="https://zhangtian2.github.io/website/research2.png" alt="Github" width="300" height="200"><br>
-                        <!-- <img border="0" src="https://zhangtian2.github.io/website/research4.png" alt="Github" width="300" height="200"> -->
-                        ZhangTianyi and Han Xiufeng. Full quantum theory for magnon transport in two-sublattice magnetic insulators and magnon junctions Phys. Rev. B 108, 104421 (2023).<a href="https://doi.org/10.1103/PhysRevB.108.104421" target="_blank">pdf</a>
-                    </li><br><br>
-                </ol>
+        </li>
+        <!-- </li> -->
+        <li class="dropdown">
+            <a href="https://zhangtian2.github.io//website//hobby.html" class="dropbtn">爱好</a>
+            <div class="dropdown-content">
+                <a href="https://zhangtian2.github.io//website//poem.html">写诗</a>
+                <a href="https://zhangtian2.github.io//website//photo.html">拍照</a>
             </div>
-        </section>
-        
-    </main>
-    <!-- <footer>
-        <p>© 2024 张天乙的个人主页. All rights reserved.</p>
-    </footer> -->
+        </li>
+        <li><a href="https://zhangtian2.github.io//website//contact.html">联系方式</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- 学习与工作内容 -->
+  <main class="container">
+    <section class="content-section">
+      <div class="section-header">
+        <h3 class="section-title">学习与工作</h3>
+        <div class="section-links">
+          <a href="https://zhangtian2.github.io//website//paper.html" class="section-link">论文</a>
+          <a href="https://zhangtian2.github.io//website//report.html" class="section-link">报告</a>
+        </div>
+      </div>
+
+      <div class="section-content">
+        <ol>
+          <li style="margin-bottom: 40px;">
+            <div class="news-date" style="font-size: 1.3rem;">研究方向 1</div>
+            <p class="news-text">
+              反常 z-torque 对 SOT 翻转磁矩的影响。基于对 LLGS 方程稳定性的分析，我们给出了一种可以同时囊括 STT 和反常 SOT 翻转磁性层的框架，给出了这种框架下用来翻转垂直磁性层的阈值电流公式。本研究对自旋电子器件的设计和控制铁磁层的钉扎和反钉扎具有指导意义。
+            </p>
+            <img src="https://zhangtian2.github.io//website//research5.png" alt="研究图1" width="300" height="200">
+            <img src="https://zhangtian2.github.io//website//research8.png" alt="研究图2" width="400" height="200">
+            <p class="news-text">
+              Zhang Tianyi, Wan Caihua and Han Xiufeng. Threshold current of field-free perpendicular magnetization switching using anomalous spin-orbit torque, Physical Review B 108, 1 (2023). 
+              <a href="https://journals.aps.org/prb/pdf/10.1103/PhysRevB.108.014432" target="_blank">pdf</a>
+            </p>
+          </li>
+
+          <li>
+            <div class="news-date" style="font-size: 1.3rem;">研究方向 2</div>
+            <p class="news-text">
+              计算磁子输运的全量子理论。基于二次量子化和非平衡格林函数法，我们提出了一种计算磁子流在双子晶格磁性绝缘体和磁子结中输运的框架。这种框架可以计算电流和温度梯度产生的磁子流的输运。
+            </p>
+            <img src="https://zhangtian2.github.io//website//research1.png" alt="研究图3" width="300" height="200">
+            <img src="https://zhangtian2.github.io//website//research2.png" alt="研究图4" width="300" height="200">
+            <p class="news-text">
+              Zhang Tianyi and Han Xiufeng. Full quantum theory for magnon transport in two-sublattice magnetic insulators and magnon junctions, Phys. Rev. B 108, 104421 (2023). 
+              <a href="https://doi.org/10.1103/PhysRevB.108.104421" target="_blank">pdf</a>
+            </p>
+          </li>
+        </ol>
+      </div>
+    </section>
+  </main>
+
+  <!-- 页脚 -->
+  <footer class="container">
+    <p>© 2025 张天乙的个人主页 | 保留所有权利</p>
+  </footer>
+
+  <!-- JS 脚本 -->
+<script>
+  const menuToggle = document.querySelector('.menu-toggle');
+  const navMenu = document.querySelector('.nav-ul');
+  const menuIcon = menuToggle.querySelector('i');
+  menuToggle.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+    menuIcon.classList.toggle('fa-bars');
+    menuIcon.classList.toggle('fa-times');
+  });
+
+  const studyBtn = document.getElementById('studyWorkBtn');
+  const studyMenu = document.getElementById('studyWorkMenu');
+  studyBtn.addEventListener('click', function(e) {
+    if (window.innerWidth <= 768) {
+      e.preventDefault();  // 阻止跳转
+      studyMenu.classList.toggle('show');
+    }
+  });
+
+  // 自动展开子菜单（仅限移动端）
+  window.addEventListener('DOMContentLoaded', function () {
+    if (window.innerWidth <= 768) {
+      if (studyMenu) {
+        studyMenu.classList.add('show');
+      }
+    }
+  });
+
+  // 移动端点击任意链接收起菜单
+  document.querySelectorAll('.nav-ul a').forEach(link => {
+    link.addEventListener('click', function () {
+      if (window.innerWidth <= 768) {
+        navMenu.classList.remove('active');
+        menuIcon.classList.remove('fa-times');
+        menuIcon.classList.add('fa-bars');
+      }
+    });
+  });
+  
+</script>
+
 </body>
 </html>

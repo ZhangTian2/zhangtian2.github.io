@@ -1,64 +1,123 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zhang Tianyi's Personal Homepage</title>
-    <link rel="stylesheet" href="https://zhangtian2.github.io//website//zhipucss.css">
+    <title>张天乙 - 已发表论文</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://zhangtian2.github.io//website//style.css">
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      document.querySelector('.menu-toggle').addEventListener('click', function () {
+        const navMenu = document.querySelector('.nav-ul');
+        navMenu.classList.toggle('active');
+        const icon = this.querySelector('i');
+        icon.classList.toggle('fa-bars');
+        icon.classList.toggle('fa-times');
+      });
+
+      document.querySelector('.dropdown > .dropbtn').addEventListener('click', function (e) {
+        if (window.innerWidth <= 768) {
+          const dropdown = this.parentElement;
+          dropdown.classList.add('active');
+          document.querySelectorAll('.nav-ul li').forEach(li => li.classList.remove('nav-ul-li-active'));
+          dropdown.parentElement.classList.add('nav-ul-li-active');
+        }
+      });
+
+      document.querySelectorAll('.nav-ul a').forEach(link => {
+        link.addEventListener('click', function () {
+          if (window.innerWidth <= 768) {
+            document.querySelector('.nav-ul').classList.remove('active');
+            const icon = document.querySelector('.menu-toggle i');
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+          }
+        });
+      });
+
+      if (window.location.href.indexOf('report.html') !== -1 && window.innerWidth <= 768) {
+        document.querySelector('.dropdown').classList.add('active');
+        document.querySelectorAll('.nav-ul li').forEach(li => li.classList.remove('nav-ul-li-active'));
+        document.querySelector('.dropdown').parentElement.classList.add('nav-ul-li-active');
+      }
+    });
+  </script>
 </head>
 <body>
+    <!-- 顶部标题 -->
     <header>
-        <img src="https://zhangtian2.github.io//website/zty3.png" alt="Logo">
-        <span class="header-title">张天乙的<br>个人主页</span>
-        <span class="header-slogan">
-            <img src="https://zhangtian2.github.io//website/ssqs.png" alt="Logo">
-        </span>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-section">
+                    <img src="https://zhangtian2.github.io//website/zty3.png" alt="张天乙">
+                    <div class="title-section">
+                        <h1>张天乙的个人主页</h1>
+                    </div>
+                </div>
+                <div class="slogan-section">
+                    <!-- <img src="https://zhangtian2.github.io//website/ssqs.png" alt="慎思求实"> -->
+                </div>
+            </div>
+        </div>
     </header>
+
+    <!-- 导航栏 -->
     <nav>
-        <div class="nav-ul">
-            <a href="https://zhangtian2.github.io//index.html" style="text-decoration: none;"><div class="nav-ul-li">首页</div></a>
-            <a href="https://zhangtian2.github.io//website//studyAndWork.html" style="text-decoration: none;"><div class="nav-ul-li-active">学习工作</div></a>
-            <a href="https://zhangtian2.github.io//website//hobby.html" style="text-decoration: none;"><div class="nav-ul-li">爱好</div></a>
-            <a href="https://zhangtian2.github.io//website//contact.html" style="text-decoration: none;"><div class="nav-ul-li">联系方式</div></a>
+        <div class="container nav-container">
+            <button class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-ul">
+                <li><a href="https://zhangtian2.github.io//index.html">首页</a></li>
+                <li class="dropdown ">
+                    <a href="https://zhangtian2.github.io//website//studyAndWork.html" class="nav-ul-li-active dropbtn">学习工作</a>
+                    <div class="dropdown-content show">
+                            <a href="https://zhangtian2.github.io//website//paper.html" class="nav-ul-li-active">论文</a>
+                            <a href="https://zhangtian2.github.io//website//report.html">报告</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="https://zhangtian2.github.io//website//hobby.html" class="dropbtn">爱好</a>
+                    <div class="dropdown-content">
+                        <a href="https://zhangtian2.github.io//website//poem.html">写诗</a>
+                        <a href="https://zhangtian2.github.io//website//photo.html">拍照</a>
+                    </div>
+                </li>
+                                <li><a href="https://zhangtian2.github.io//website//contact.html">联系方式</a></li>
+            </ul>
         </div>
     </nav>
-    <main>
-        <section class="studyAndWork">
-            <div class="news-left">
-                <a href="https://zhangtian2.github.io//website//studyAndWork.html" style="text-decoration: none;">
-                    <div class="column_title">
-                        学习工作
-                    </div>
-                </a>
-                    <a href="https://zhangtian2.github.io//website//paper.html" class="chosen"><div class="chosen_left"></div> 
-                        论文
-                    </a>
-                    <a href="https://zhangtian2.github.io//website//report.html" class="notchosen">
-                        报告
-                    </a>
+
+    <!-- 主要内容 -->
+    <main class="container">
+        <section class="content-section">
+            <div class="section-header">
+                <h3 class="section-title">已发表论文</h3>
             </div>
-            <div class="news-right">
-                <ol>
-                    <div style="font-size: 30px; font-weight: bold;margin-left: -15px;margin-bottom: 15px;">已发表论文</div>
-                    <div style="font-size: 20px;font-weight:bold; color:#1D3897;margin-bottom: 15px;">2024</div>
-                    <div style="margin-bottom: 5px;">7. Wenqing He*; <b>Tianyi Zhang*</b>; Yongjian Zhou; Caihua Wan; Hao Wu; Baoshan Cui; Jihao Xia; Ran Zhang; Tengyu Guo; Peng Chen et al.. Electrical switching of the perpendicular Néel order in acollinear antiferromagnet. <a href="https://doi.org/10.1038/s41928-024-01248-3" target="_blank">Nature Electronics 7, 975–983 (2024).</a></div>
-                    <div style="margin-bottom: 5px;">6. Yichi Zhang; Hui Zhang; Xiuxia Wang; Yiheng Wang; Yuchen Liu; Shu Li; <b>Tianyi Zhang</b>; Chuang Fan; Changgan Zeng. Magnetic-field tuning of the Casimir force. <a href="https://doi.org/10.1038/s41567-024-02521-0" target="_blank">Nature Physics 20, 1282–1287 (2024).</a></div>
-                    <div style="margin-bottom: 5px;">5. Xiu-Feng Han; Hao Wu; <b>Tianyi Zhang</b>. Magnonics: Materials, physics, and devices. <a href="https://doi.org/10.1063/5.0216094" target="_blank">Applied Physics Letters 125, 020501 (2024).</a></div>
-                    <div style="margin-bottom: 5px;">4. Yi Zhan Wang; <b>T. Y. Zhang</b>; J. Dong; P. Chen; G. Q. Yu; C. H. Wan; Xiu-Feng Han. Voltage-Controlled Magnon Transistor via Tuning InterfacialExchange coupling. <a href="https://doi.org/10.1103/physrevlett.132.076701" target="_blank">Phys. Rev. Letters 132, 076701 (2024).</a></div>
+            <div class="section-content">
+                <div style="font-size: 20px;font-weight:bold; color:#1D3897;margin-bottom: 15px;">2025</div>
+                <p>8. <b>Zhang Tianyi</b>, Wan Caihua and Han Xiufeng. In-plane magnon valve effect in magnetic insulator–heavy metal–magnetic insulator device. <a href="https://journals.aps.org/prb/abstract/10.1103/PhysRevB.111.014427" target="_blank">Phys. Rev. B 111, 014427 (2025).</a></p>
 
-                    <div style="font-size: 20px;font-weight:bold; color:#1D3897;margin-bottom: 15px;">2023</div>
-                    <div style="margin-bottom: 5px;">3. <b>Zhang Tianyi</b> and Han Xiufeng. Full quantum theory for magnon transport in two-sublattice magnetic insulators and magnon junctions. <a href="https://doi.org/10.1103/PhysRevB.108.104421" target="_blank">Phys. Rev. B 108, 104421 (2023).</a></div>
-                    <div style="margin-bottom: 5px;">2. <b>Zhang Tianyi</b>, Wan Caihua, Han Xiufeng, Threshold current of field-free perpendicular magnetization switching using anomalous spin-orbit torque. <a href="https://journals.aps.org/prb/pdf/10.1103/PhysRevB.108.014432" target="_blank">Physical Review B 108, 014432 (2023).</a></div>
+                <div style="font-size: 20px;font-weight:bold; color:#1D3897;margin:20px 0 15px;">2024</div>
+                <p>7. Wenqing He*; <b>Tianyi Zhang*</b>; Yongjian Zhou; Caihua Wan; Hao Wu; Baoshan Cui; Jihao Xia; Ran Zhang; Tengyu Guo; Peng Chen et al.. Electrical switching of the perpendicular Néel order in acollinear antiferromagnet. <a href="https://doi.org/10.1038/s41928-024-01248-3" target="_blank">Nature Electronics 7, 975–983 (2024).</a></p>
+                <p>6. Yichi Zhang; Hui Zhang; Xiuxia Wang; Yiheng Wang; Yuchen Liu; Shu Li; <b>Tianyi Zhang</b>; Chuang Fan; Changgan Zeng. Magnetic-field tuning of the Casimir force. <a href="https://doi.org/10.1038/s41567-024-02521-0" target="_blank">Nature Physics 20, 1282–1287 (2024).</a></p>
+                <p>5. Xiu-Feng Han; Hao Wu; <b>Tianyi Zhang</b>. Magnonics: Materials, physics, and devices. <a href="https://doi.org/10.1063/5.0216094" target="_blank">Applied Physics Letters 125, 020501 (2024).</a></p>
+                <p>4. Yi Zhan Wang; <b>T. Y. Zhang</b>; J. Dong; P. Chen; G. Q. Yu; C. H. Wan; Xiu-Feng Han. Voltage-Controlled Magnon Transistor via Tuning Interfacial Exchange coupling. <a href="https://doi.org/10.1103/physrevlett.132.076701" target="_blank">Phys. Rev. Lett. 132, 076701 (2024).</a></p>
 
-                    <div style="font-size: 20px;font-weight:bold; color:#1D3897;margin-bottom: 15px;margin-top: 15px;">2020</div>
-                    <div style="margin-bottom: 5px;">1. Zheng-Yuan Zhang, <b>Tian-Yi Zhang</b>, ZongKai Liu, Dong-Sheng Ding, and Bao-Sen Shi. Research progress of rydberg manybody interaction. <a href="https://wulixb.iphy.ac.cn/pdf-content/10.7498/aps.69.20200649.pdf" target="_blank">Acta Physica Sinica, 69(18), (2020).</a></div>
-                </ol>
+                <div style="font-size: 20px;font-weight:bold; color:#1D3897;margin:20px 0 15px;">2023</div>
+                <p>3. <b>Zhang Tianyi</b> and Han Xiufeng. Full quantum theory for magnon transport in two-sublattice magnetic insulators and magnon junctions. <a href="https://doi.org/10.1103/PhysRevB.108.104421" target="_blank">Phys. Rev. B 108, 104421 (2023).</a></p>
+                <p>2. <b>Zhang Tianyi</b>, Wan Caihua, Han Xiufeng, Threshold current of field-free perpendicular magnetization switching using anomalous spin-orbit torque. <a href="https://journals.aps.org/prb/pdf/10.1103/PhysRevB.108.014432" target="_blank">Phys. Rev. B 108, 014432 (2023).</a></p>
+
+                <div style="font-size: 20px;font-weight:bold; color:#1D3897;margin:20px 0 15px;">2020</div>
+                <p>1. Zheng-Yuan Zhang, <b>Tian-Yi Zhang</b>, ZongKai Liu, Dong-Sheng Ding, and Bao-Sen Shi. Research progress of rydberg manybody interaction. <a href="https://wulixb.iphy.ac.cn/pdf-content/10.7498/aps.69.20200649.pdf" target="_blank">Acta Physica Sinica, 69(18), (2020).</a></p>
             </div>
         </section>
-        
     </main>
-    <!-- <footer>
-        <p>© 2024 张天乙的个人主页. All rights reserved.</p>
-    </footer> -->
+
+    <!-- 页脚 -->
+    <footer class="container">
+        <p>© 2025 张天乙的个人主页 | 保留所有权利</p>
+    </footer>
 </body>
 </html>

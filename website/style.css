@@ -1,0 +1,561 @@
+/* styles.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+}
+
+:root {
+    --primary: #3D55A7;
+    --primary-dark: #1D3897;
+    --secondary: #F0F2FC;
+    --accent: #FF6B6B;
+    --text: #333;
+    --light: #fff;
+    --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+body {
+    background: linear-gradient(135deg, #f5f7fa 0%, #e4e7f1 100%);
+    color: var(--text);
+    line-height: 1.6;
+    padding-bottom: 40px;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* 顶部标题样式 */
+header {
+    background: linear-gradient(to right, var(--primary-dark), var(--primary));
+    color: var(--light);
+    padding: 20px 0;
+    box-shadow: var(--shadow);
+    position: relative;
+    overflow: hidden;
+}
+
+header::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+    transform: rotate(30deg);
+    pointer-events: none;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo-section img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+}
+
+.title-section h1 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.slogan-section img {
+    height: 50px;
+    opacity: 0.9;
+}
+
+/* 响应式导航栏 */
+nav {
+    background-color: var(--primary);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--light);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 15px;
+}
+
+.nav-ul {
+    display: flex;
+    list-style: none;
+}
+
+.nav-ul li {
+    position: relative;
+}
+
+.nav-ul a {
+    display: block;
+    padding: 18px 25px;
+    color: var(--light);
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: var(--transition);
+    position: relative;
+}
+
+.nav-ul a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.nav-ul a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 4px;
+    background: var(--accent);
+    transform: translateX(-50%);
+    transition: var(--transition);
+    border-radius: 2px;
+}
+
+.nav-ul a:hover::after {
+    width: 80%;
+}
+
+.nav-ul-li-active {
+    background-color: var(--primary-dark);
+}
+
+.nav-ul-li-active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 80%;
+    height: 4px;
+    background: var(--accent);
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
+.dropdown-content a.nav-ul-li-active {
+    background-color: var(--primary-dark);
+    color: var(--light);
+}
+
+/* 主要内容区域 */
+main {
+    padding: 40px 0;
+}
+
+.profile-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.profile-image {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.profile-image img {
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    border: 5px solid var(--light);
+    box-shadow: var(--shadow);
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.profile-image img:hover {
+    transform: scale(1.03);
+}
+
+.social-links {
+    position: absolute;
+    bottom: 30px;
+    display: flex;
+    gap: 15px;
+    background: var(--light);
+    padding: 12px 20px;
+    border-radius: 50px;
+    box-shadow: var(--shadow);
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: var(--secondary);
+    color: var(--primary);
+    font-size: 1.3rem;
+    transition: var(--transition);
+    text-decoration: none;
+}
+
+.social-links a:hover {
+    background: var(--primary);
+    color: var(--light);
+    transform: translateY(-5px);
+}
+
+.profile-details {
+    flex: 2;
+    min-width: 300px;
+    padding: 30px;
+    background: var(--light);
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+}
+
+.profile-details h2 {
+    color: var(--primary-dark);
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid var(--secondary);
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+    padding-left: 10px;
+    border-left: 3px solid var(--primary);
+}
+
+.detail-item i {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--secondary);
+    color: var(--primary);
+    border-radius: 50%;
+    margin-right: 15px;
+    font-size: 1.1rem;
+}
+
+.detail-item p {
+    font-size: 1.2rem;
+    color: var(--text);
+}
+
+/* 新闻和链接部分 */
+.content-section {
+    background: var(--light);
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+    background: linear-gradient(to right, var(--primary), var(--primary-dark));
+    color: var(--light);
+}
+
+.section-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.section-link {
+    color: var(--light);
+    text-decoration: none;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: var(--transition);
+}
+
+.section-link:hover {
+    color: var(--accent);
+}
+
+.section-content {
+    padding: 25px 30px;
+}
+
+.news-item {
+    display: flex;
+    align-items: flex-start;
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.news-item:last-child {
+    border-bottom: none;
+}
+
+.news-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 15px;
+    margin-top: 5px;
+    color: var(--primary);
+}
+
+.news-content {
+    flex: 1;
+}
+
+.news-date {
+    font-weight: 600;
+    color: var(--primary-dark);
+    margin-bottom: 5px;
+    display: inline-block;
+    background: var(--secondary);
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+.news-text {
+    font-size: 1.1rem;
+    line-height: 1.5;
+}
+
+.link-item {
+    display: flex;
+    align-items: center;
+    padding: 15px 0;
+}
+
+.link-item a {
+    display: flex;
+    align-items: center;
+    color: var(--primary);
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.link-item a:hover {
+    color: var(--accent);
+    transform: translateX(5px);
+}
+
+.link-item i {
+    margin-right: 15px;
+    font-size: 1.2rem;
+    color: var(--primary);
+}
+
+/* 页脚样式 */
+footer {
+    text-align: center;
+    padding: 30px 0;
+    color: var(--text);
+    font-size: 1rem;
+    margin-top: 20px;
+}
+
+/* 响应式设计 */
+@media (max-width: 992px) {
+    .header-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+    
+    .logo-section {
+        justify-content: center;
+    }
+    
+    .slogan-section {
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+    
+    .nav-ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: var(--primary);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    .nav-ul.active {
+        display: flex;
+    }
+    
+    .nav-ul li {
+        width: 100%;
+    }
+    
+    .nav-ul a {
+        padding: 15px 20px;
+        text-align: center;
+    }
+    
+    .profile-section {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .profile-details {
+        width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    .title-section h1 {
+        font-size: 1.5rem;
+    }
+    
+    .slogan-section img {
+        height: 40px;
+    }
+    
+    .profile-image img {
+        width: 240px;
+        height: 240px;
+    }
+    
+    .social-links {
+        padding: 10px 15px;
+        gap: 10px;
+    }
+    
+    .social-links a {
+        width: 40px;
+        height: 40px;
+        font-size: 1.1rem;
+    }
+    
+    .detail-item p {
+        font-size: 1.1rem;
+    }
+    
+    .section-header {
+        padding: 15px 20px;
+    }
+    
+    .section-content {
+        padding: 20px;
+    }
+    
+    .news-text {
+        font-size: 1rem;
+    }
+}
+
+/* 下拉菜单容器 */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* 主按钮样式 */
+.dropbtn {
+  display: block;
+  padding: 10px 20px;
+  color: white;
+  text-decoration: none;
+}
+
+/* 下拉内容隐藏 */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #ffffff;
+  min-width: 120px;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+  z-index: 1000;
+}
+
+/* 下拉菜单链接样式 */
+.dropdown-content a {
+  color: #333;
+  padding: 10px 15px;
+  text-decoration: none;
+  display: block;
+  font-size: 15px;
+
+}
+
+/* 鼠标悬停时显示下拉 */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* 下拉项悬停高亮 */
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+
+}
+
+/* 导航栏激活样式（可选） */
+.nav-ul .nav-ul-li-active, .dropbtn:hover {
+  background-color: #4a90e2;
+}
+/* 强制显示 .show 类的 dropdown 菜单 */
+.dropdown-content.show {
+  display: block !important;
+  position: static;
+  background-color: var(--primary);
+  box-shadow: none;
+  padding-left: 0;
+  padding-right: 0;
+	
+}
+.dropdown-content a.chosen {
+background-color: var(--primary-dark);
+
+  border-bottom: 3px solid rgba(0, 0, 0, 0.08);
+  color: white;
+}
+
+
