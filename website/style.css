@@ -227,6 +227,7 @@ main {
     font-size: 1.3rem;
     transition: var(--transition);
     text-decoration: none;
+
 }
 
 .social-links a:hover {
@@ -415,7 +416,11 @@ footer {
     .menu-toggle {
         display: block;
     }
-    
+        .social-links {
+        padding: 10px 15px;
+        gap: 10px;
+	bottom: -50px;
+    }
     .nav-ul {
         display: none;
         flex-direction: column;
