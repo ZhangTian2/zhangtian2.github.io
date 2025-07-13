@@ -1,78 +1,666 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zhang Tianyi's Personal Homepage</title>
-    <link rel="stylesheet" href="https://zhangtian2.github.io//website//zhipucss.css">
+    <title>张天乙 - 个人主页</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+        }
+        
+        :root {
+            --primary: #3D55A7;
+            --primary-dark: #1D3897;
+            --secondary: #F0F2FC;
+            --accent: #FF6B6B;
+            --text: #333;
+            --light: #fff;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e7f1 100%);
+            color: var(--text);
+            line-height: 1.6;
+            padding-bottom: 40px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* 顶部标题样式 */
+        header {
+            background: linear-gradient(to right, var(--primary-dark), var(--primary));
+            color: var(--light);
+            padding: 20px 0;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+            transform: rotate(30deg);
+            pointer-events: none;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+        
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo-section img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .title-section h1 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+        
+        .slogan-section img {
+            height: 50px;
+            opacity: 0.9;
+        }
+        
+        /* 响应式导航栏 */
+        nav {
+            background-color: var(--primary);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--light);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 15px;
+        }
+        
+        .nav-ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-ul li {
+            position: relative;
+        }
+        
+        .nav-ul a {
+            display: block;
+            padding: 18px 25px;
+            color: var(--light);
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .nav-ul a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .nav-ul a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 4px;
+            background: var(--accent);
+            transform: translateX(-50%);
+            transition: var(--transition);
+            border-radius: 2px;
+        }
+        
+        .nav-ul a:hover::after {
+            width: 80%;
+        }
+        
+        .nav-ul-li-active {
+            background-color: var(--primary-dark);
+        }
+        
+        .nav-ul-li-active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 80%;
+            height: 4px;
+            background: var(--accent);
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        
+        /* 主要内容区域 */
+        main {
+            padding: 40px 0;
+        }
+        
+        .profile-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .profile-image {
+            flex: 1;
+            min-width: 300px;
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .profile-image img {
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            border: 5px solid var(--light);
+            box-shadow: var(--shadow);
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .profile-image img:hover {
+            transform: scale(1.03);
+        }
+        
+        .social-links {
+            position: absolute;
+            bottom: 30px;
+            display: flex;
+            gap: 15px;
+            background: var(--light);
+            padding: 12px 20px;
+            border-radius: 50px;
+            box-shadow: var(--shadow);
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: var(--secondary);
+            color: var(--primary);
+            font-size: 1.3rem;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+        
+        .social-links a:hover {
+            background: var(--primary);
+            color: var(--light);
+            transform: translateY(-5px);
+        }
+        
+        .profile-details {
+            flex: 2;
+            min-width: 300px;
+            padding: 30px;
+            background: var(--light);
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+        }
+        
+        .profile-details h2 {
+            color: var(--primary-dark);
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--secondary);
+        }
+        
+        .detail-item {
+            display: flex;
+            align-items: center;
+            margin: 20px 0;
+            padding-left: 10px;
+            border-left: 3px solid var(--primary);
+        }
+        
+        .detail-item i {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--secondary);
+            color: var(--primary);
+            border-radius: 50%;
+            margin-right: 15px;
+            font-size: 1.1rem;
+        }
+        
+        .detail-item p {
+            font-size: 1.2rem;
+            color: var(--text);
+        }
+        
+        /* 新闻和链接部分 */
+        .content-section {
+            background: var(--light);
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+        
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 30px;
+            background: linear-gradient(to right, var(--primary), var(--primary-dark));
+            color: var(--light);
+        }
+        
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+        
+        .section-link {
+            color: var(--light);
+            text-decoration: none;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+        }
+        
+        .section-link:hover {
+            color: var(--accent);
+        }
+        
+        .section-content {
+            padding: 25px 30px;
+        }
+        
+        .news-item {
+            display: flex;
+            align-items: flex-start;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+        }
+        
+        .news-item:last-child {
+            border-bottom: none;
+        }
+        
+        .news-icon {
+            width: 24px;
+            height: 24px;
+            margin-right: 15px;
+            margin-top: 5px;
+            color: var(--primary);
+        }
+        
+        .news-content {
+            flex: 1;
+        }
+        
+        .news-date {
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin-bottom: 5px;
+            display: inline-block;
+            background: var(--secondary);
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        
+        .news-text {
+            font-size: 1.1rem;
+            line-height: 1.5;
+        }
+        
+        .link-item {
+            display: flex;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .link-item a {
+            display: flex;
+            align-items: center;
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        .link-item a:hover {
+            color: var(--accent);
+            transform: translateX(5px);
+        }
+        
+        .link-item i {
+            margin-right: 15px;
+            font-size: 1.2rem;
+            color: var(--primary);
+        }
+        
+        /* 页脚样式 */
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            color: var(--text);
+            font-size: 1rem;
+            margin-top: 20px;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 992px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+            
+            .logo-section {
+                justify-content: center;
+            }
+            
+            .slogan-section {
+                margin-top: 10px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            
+            .nav-ul {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                background: var(--primary);
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            }
+            
+            .nav-ul.active {
+                display: flex;
+            }
+            
+            .nav-ul li {
+                width: 100%;
+            }
+            
+            .nav-ul a {
+                padding: 15px 20px;
+                text-align: center;
+            }
+            
+            .profile-section {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .profile-details {
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .title-section h1 {
+                font-size: 1.5rem;
+            }
+            
+            .slogan-section img {
+                height: 40px;
+            }
+            
+            .profile-image img {
+                width: 240px;
+                height: 240px;
+            }
+            
+            .social-links {
+                padding: 10px 15px;
+                gap: 10px;
+            }
+            
+            .social-links a {
+                width: 40px;
+                height: 40px;
+                font-size: 1.1rem;
+            }
+            
+            .detail-item p {
+                font-size: 1.1rem;
+            }
+            
+            .section-header {
+                padding: 15px 20px;
+            }
+            
+            .section-content {
+                padding: 20px;
+            }
+            
+            .news-text {
+                font-size: 1rem;
+            }
+        }
+    </style>
 </head>
 <body>
+    <!-- 顶部标题区域 -->
     <header>
-        <img src="https://zhangtian2.github.io//website//zty3.png" alt="Logo">
-        <span class="header-title">张天乙的<br>个人主页</span>
-        <span class="header-slogan">
-<!--             <img src="https://zhangtian2.github.io//website//ssqs.png" alt="Logo"> -->
-        </span>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-section">
+                    <img src="https://zhangtian2.github.io//website//zty3.png" alt="张天乙">
+                    <div class="title-section">
+                        <h1>张天乙的个人主页</h1>
+                    </div>
+                </div>
+                <div class="slogan-section">
+                    <img src="https://zhangtian2.github.io//website//ssqs.png" alt="慎思求实">
+                </div>
+            </div>
+        </div>
     </header>
+    
+    <!-- 导航栏 -->
     <nav>
-        <div class="nav-ul">
-            <a href="https://zhangtian2.github.io//index.html" style="text-decoration: none;"><div class="nav-ul-li-active">首页</div></a>
-            <a href="https://zhangtian2.github.io//website//studyAndWork.html" style="text-decoration: none;"><div class="nav-ul-li">学习工作</div></a>
-            <a href="https://zhangtian2.github.io//website//hobby.html" style="text-decoration: none;"><div class="nav-ul-li">爱好</div></a>
-            <a href="https://zhangtian2.github.io//website//contact.html" style="text-decoration: none;"><div class="nav-ul-li">联系方式</div></a>
+        <div class="container nav-container">
+            <button class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-ul">
+                <li class="nav-ul-li-active"><a href="https://zhangtian2.github.io//index.html">首页</a></li>
+                <li><a href="https://zhangtian2.github.io//website//studyAndWork.html">学习工作</a></li>
+                <li><a href="https://zhangtian2.github.io//website//hobby.html">爱好</a></li>
+                <li><a href="https://zhangtian2.github.io//website//contact.html">联系方式</a></li>
+            </ul>
         </div>
     </nav>
-    <main>
-        <section class="profile">
+    
+    <!-- 主要内容区域 -->
+    <main class="container">
+        <!-- 个人资料部分 -->
+        <section class="profile-section">
             <div class="profile-image">
-                <img src="https://zhangtian2.github.io//website//zty2.jpg" alt="Profile Image">
-                <div class="profile-smallimage">
-                    <a href="https://gitee.com/ZhangTianYi030/projects" target="_blank" style="text-decoration: none;">
-                        <img src="https://zhangtian2.github.io//website//mayun.png" alt="Mayun">
+                <img src="https://zhangtian2.github.io//website//zty2.jpg" alt="张天乙">
+                <div class="social-links">
+                    <a href="https://gitee.com/ZhangTianYi030/projects" target="_blank">
+                        <i class="fab fa-gitlab"></i>
                     </a>
-                    <a href="https://github.com/zhangtian2" target="_blank" style="text-decoration: none;">
-                        <img src="https://zhangtian2.github.io//website//github.jpg" alt="Github">
+                    <a href="https://github.com/zhangtian2" target="_blank">
+                        <i class="fab fa-github"></i>
                     </a>
-                    <a href="mailto:zty1821187980@mail.ustc.edu.cn" style="text-decoration: none;">
-                        <img src="https://zhangtian2.github.io//website//email.jpg" alt="e-mail">
+                    <a href="mailto:zty1821187980@mail.ustc.edu.cn">
+                        <i class="fas fa-envelope"></i>
                     </a>
                 </div>
             </div>
+            
             <div class="profile-details">
-                <p>张天乙</p>
-                <p>安徽省天长市人</p>
-                <p>凝聚态物理专业在读博士生</p>
-                <p>就读于中国科学院物理研究所</p>
+                <h2>张天乙</h2>
+                
+                <div class="detail-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <p>安徽省天长市人</p>
+                </div>
+                
+                <div class="detail-item">
+                    <i class="fas fa-graduation-cap"></i>
+                    <p>凝聚态物理专业在读博士生</p>
+                </div>
+                
+                <div class="detail-item">
+                    <i class="fas fa-university"></i>
+                    <p>就读于中国科学院物理研究所</p>
+                </div>
+                
+                <div class="detail-item">
+                    <i class="fas fa-flask"></i>
+                    <p>研究方向：自旋电子学与磁性材料</p>
+                </div>
             </div>
         </section>
-        <section class="news">
-            <div class="news-header">
-                <span>新闻</span>
-                <a href="https://zhangtian2.github.io//website//news.html" target="_blank" style="text-decoration: none;color: white;"><span class="more-news">更多新闻 +</span></a>
+        
+        <!-- 新闻部分 -->
+        <section class="content-section">
+            <div class="section-header">
+                <h3 class="section-title">最新动态</h3>
+                <a href="https://zhangtian2.github.io//website//news.html" target="_blank" class="section-link">
+                    更多 <i class="fas fa-arrow-right"></i>
+                </a>
             </div>
-            <div class="news-content">
-                <div><img src="https://zhangtian2.github.io//website/news.png" alt="Small Circle">
-                2024/09/30                    论文《Electrical switching of the perpendicular Néel order in a collinear antiferromagnet》在物理期刊Nature Electronics上发表！</div>
-                <div><img src="https://zhangtian2.github.io//website/news.png" alt="Small Circle">
-                2024/07/08                    论文《Magnonics: Materials, physics, and devices》在物理期刊Applied Physics Letters上发表！</div>
-                <div><img src="https://zhangtian2.github.io//website/news.png" alt="Small Circle">
-                2024/05/24                    论文《Magnetic-field tuning of the Casimir force》在物理期刊Nature Physics上发表！</div>
+            
+            <div class="section-content">
+                <div class="news-item">
+                    <i class="fas fa-bullhorn news-icon"></i>
+                    <div class="news-content">
+                        <span class="news-date">2024/09/30</span>
+                        <p class="news-text">论文《Electrical switching of the perpendicular Néel order in a collinear antiferromagnet》在物理期刊Nature Electronics上发表！</p>
+                    </div>
+                </div>
+                
+                <div class="news-item">
+                    <i class="fas fa-bullhorn news-icon"></i>
+                    <div class="news-content">
+                        <span class="news-date">2024/07/08</span>
+                        <p class="news-text">论文《Magnonics: Materials, physics, and devices》在物理期刊Applied Physics Letters上发表！</p>
+                    </div>
+                </div>
+                
+                <div class="news-item">
+                    <i class="fas fa-bullhorn news-icon"></i>
+                    <div class="news-content">
+                        <span class="news-date">2024/05/24</span>
+                        <p class="news-text">论文《Magnetic-field tuning of the Casimir force》在物理期刊Nature Physics上发表！</p>
+                    </div>
+                </div>
             </div>
         </section>
-        <section class="news">
-            <div class="news-header">
-                <span>链接</span>
+        
+        <!-- 链接部分 -->
+        <section class="content-section">
+            <div class="section-header">
+                <h3 class="section-title">相关链接</h3>
             </div>
-            <div class="news-content">
-                <div><img src="https://zhangtian2.github.io//website//news.png" alt="Small Circle"><a href="https://zhangtian2.github.io//blog//index.html" target="_blank" style="text-decoration: none;color: black;">
-                个人博客</a></div>
-                <div><img src="https://zhangtian2.github.io//website//news.png" alt="Small Circle"><a href="https://zhangtian2.github.io//website/cv.pdf" target="_blank" style="text-decoration: none;color: black;">
-                CV</a></div>
+            
+            <div class="section-content">
+                <div class="link-item">
+                    <i class="fas fa-link"></i>
+                    <a href="https://zhangtian2.github.io//blog//index.html" target="_blank">个人博客</a>
+                </div>
+                
+                <div class="link-item">
+                    <i class="fas fa-file-pdf"></i>
+                    <a href="https://zhangtian2.github.io//website/cv.pdf" target="_blank">个人简历 (CV)</a>
+                </div>
             </div>
         </section>
     </main>
-    <!-- <footer>
-        <p>© 2024 张天乙的个人主页. All rights reserved.</p>
-    </footer> -->
+    
+    <!-- 页脚 -->
+    <footer class="container">
+        <p>© 2024 张天乙的个人主页 | 中国科学院物理研究所 | 保留所有权利</p>
+    </footer>
+    
+    <script>
+        // 移动端导航菜单切换
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            const navMenu = document.querySelector('.nav-ul');
+            navMenu.classList.toggle('active');
+            
+            // 切换菜单图标
+            const icon = this.querySelector('i');
+            if (icon.classList.contains('fa-bars')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+        
+        // 当点击导航链接时，在移动端关闭菜单
+        document.querySelectorAll('.nav-ul a').forEach(link => {
+            link.addEventListener('click', function() {
+                if (window.innerWidth <= 768) {
+                    document.querySelector('.nav-ul').classList.remove('active');
+                    document.querySelector('.menu-toggle i').classList.remove('fa-times');
+                    document.querySelector('.menu-toggle i').classList.add('fa-bars');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
